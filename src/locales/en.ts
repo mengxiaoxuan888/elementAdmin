@@ -333,6 +333,18 @@ export default {
   levelDemo: {
     menu: 'Multi level menu cache'
   },
+  level0Demo: {
+    menu1: 'Summary of demand orders',
+    menu2: 'Program logic summary',
+    menu3: 'Process Flow Summary',
+    menu4: 'Summary of errors and exceptions',
+    menu5: 'Label Size Summary',
+    menu6: 'Summary of permission flags',
+    menu7: 'Table Flag Summary',
+    menu8: 'Summary of brush gun commands',
+    menu9: 'TNS DB IP Summary',
+    menu10: 'URL Summary'
+  },
   searchDemo: {
     search: 'Search',
     searchDes:

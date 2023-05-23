@@ -1,27 +1,27 @@
 <script setup lang="ts">
-import { ContentWrap } from '@/components/ContentWrap'
-import { Search } from '@/components/Search'
-import { Dialog } from '@/components/Dialog'
-import { useI18n } from '@/hooks/web/useI18n'
-import { ElButton, ElTag } from 'element-plus'
-import { Table } from '@/components/Table'
-import { getTableListApi, saveTableApi, delTableListApi } from '@/api/table'
-import { useTable } from '@/hooks/web/useTable'
-import { TableData } from '@/api/table/types'
-import { h, ref, unref, reactive } from 'vue'
-import Write from './components/Write.vue'
-import Detail from './components/Detail.vue'
-import { CrudSchema, useCrudSchemas } from '@/hooks/web/useCrudSchemas'
-import { TableColumn } from '@/types/table'
+import { ContentWrap } from '@/components/ContentWrap' //内容环绕组件
+import { Search } from '@/components/Search' //搜索
+import { Dialog } from '@/components/Dialog' //弹窗
+import { useI18n } from '@/hooks/web/useI18n' //多语言设置
+import { ElButton, ElTag } from 'element-plus' //按钮，标签
+import { Table } from '@/components/Table' //表组件
+import { getTableListApi, saveTableApi, delTableListApi } from '@/api/table' //api接口-获取表数据，保存表数据，删除表数据
+import { useTable } from '@/hooks/web/useTable' //hooks函数-表函数
+import { TableData } from '@/api/table/types' //api接口-表类型
+import { h, ref, unref, reactive } from 'vue' //vue
+import Write from './components/Write.vue' //编辑组件
+import Detail from './components/Detail.vue' //详情组件
+import { CrudSchema, useCrudSchemas } from '@/hooks/web/useCrudSchemas' //hooks函数-增删改查
+import { TableColumn } from '@/types/table' //类型-表
 
 const { register, tableObject, methods } = useTable<TableData>({
-  getListApi: getTableListApi,
-  delListApi: delTableListApi,
-  response: {
-    list: 'list',
-    total: 'total'
+  getListApi: getTableListApi, //获取表数据
+  delListApi: delTableListApi, //删除表数据
+  response: {//响应
+    list: 'list', //list列表数据
+    total: 'total' //总数
   },
-  defaultParams: {
+  defaultParams: { //默认参数
     title: 's'
   }
 })
@@ -34,9 +34,9 @@ const { t } = useI18n()
 
 const crudSchemas = reactive<CrudSchema[]>([
   {
-    field: 'index',
-    label: t('tableDemo.index'),
-    type: 'index',
+    field: 'index', //栏位名称英文
+    label: t('tableDemo.index'), //栏位名称中文
+    type: 'index', //数据类型
     form: {
       show: false
     },
@@ -157,6 +157,7 @@ const dialogVisible = ref(false)
 
 const dialogTitle = ref('')
 
+//添加方法
 const AddAction = () => {
   dialogTitle.value = t('exampleDemo.add')
   tableObject.currentRow = null
@@ -166,6 +167,7 @@ const AddAction = () => {
 
 const delLoading = ref(false)
 
+//删除数据
 const delData = async (row: TableData | null, multiple: boolean) => {
   tableObject.currentRow = row
   const { delList, getSelections } = methods
@@ -181,6 +183,7 @@ const delData = async (row: TableData | null, multiple: boolean) => {
 
 const actionType = ref('')
 
+//是点击了编辑还是详情
 const action = (row: TableData, type: string) => {
   dialogTitle.value = t(type === 'edit' ? 'exampleDemo.edit' : 'exampleDemo.detail')
   actionType.value = type
@@ -192,6 +195,7 @@ const writeRef = ref<ComponentRef<typeof Write>>()
 
 const loading = ref(false)
 
+//保存
 const save = async () => {
   const write = unref(writeRef)
   await write?.elFormRef?.validate(async (isValid) => {
