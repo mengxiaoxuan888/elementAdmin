@@ -1,18 +1,18 @@
 <script setup lang="ts">
 import { reactive, ref, unref, watch } from 'vue'
-import { Form } from '@/components/Form'
-import { useI18n } from '@/hooks/web/useI18n'
-import { ElButton, ElCheckbox, ElLink } from 'element-plus'
-import { useForm } from '@/hooks/web/useForm'
-import { loginApi, getTestRoleApi, getAdminRoleApi } from '@/api/login'
-import { useCache } from '@/hooks/web/useCache'
-import { useAppStore } from '@/store/modules/app'
-import { usePermissionStore } from '@/store/modules/permission'
-import { useRouter } from 'vue-router'
-import type { RouteLocationNormalizedLoaded, RouteRecordRaw } from 'vue-router'
-import { UserType } from '@/api/login/types'
-import { useValidator } from '@/hooks/web/useValidator'
-import { FormSchema } from '@/types/form'
+import { Form } from '@/components/Form' //Form表单组件
+import { useI18n } from '@/hooks/web/useI18n' //多语言设置
+import { ElButton, ElCheckbox, ElLink } from 'element-plus' //按钮组件，确认组件，连接组件
+import { useForm } from '@/hooks/web/useForm' //hooks函数-表单函数
+import { loginApi, getTestRoleApi, getAdminRoleApi } from '@/api/login' //api接口-登录接口，获取测试角色接口，获取管理员角色接口
+import { useCache } from '@/hooks/web/useCache' //hooks函数-使用缓存
+import { useAppStore } from '@/store/modules/app' //状态管理
+import { usePermissionStore } from '@/store/modules/permission' //状态管理-权限
+import { useRouter } from 'vue-router' //路由
+import type { RouteLocationNormalizedLoaded, RouteRecordRaw } from 'vue-router' // 路由
+import { UserType } from '@/api/login/types' //api接口-登录类型
+import { useValidator } from '@/hooks/web/useValidator' //hooks函数-验证
+import { FormSchema } from '@/types/form' //类型-表单类型
 
 const { required } = useValidator()
 
@@ -28,6 +28,7 @@ const { wsCache } = useCache()
 
 const { t } = useI18n()
 
+//验证规则
 const rules = {
   username: [required()],
   password: [required()]

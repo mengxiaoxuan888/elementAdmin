@@ -85,8 +85,8 @@ export default {
     small: '小'
   },
   login: {
-    welcome: '欢迎使用本系统',
-    message: '开箱即用的中后台管理系统',
+    welcome: '欢迎使用 SFIS 资讯整合系统',
+    message: '为工厂现场各项生成资料收集于整合的系统，具有工厂制程防呆，资源追踪，即时分析，流程管控 等等管理功能',
     username: '用户名',
     password: '密码',
     register: '注册',

@@ -18,10 +18,12 @@ const { t } = useI18n()
 
 const isLogin = ref(true)
 
+//去注册页面
 const toRegister = () => {
   isLogin.value = false
 }
 
+//去登录页面
 const toLogin = () => {
   isLogin.value = true
 }

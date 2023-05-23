@@ -85,7 +85,7 @@ export default {
     small: 'Small'
   },
   login: {
-    welcome: 'Welcome to the system',
+    welcome: 'SFIS Information Integration System',
     message: 'Backstage management system',
     username: 'Username',
     password: 'Password',
