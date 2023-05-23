@@ -411,6 +411,129 @@ export const asyncRouterMap: AppRouteRecordRaw[] = [
     ]
   },
   {
+    path: '/level0',
+    component: Layout,
+    redirect: '/level0/menu1/menu1-1/menu1-1-1',
+    name: 'Level0',
+    meta: {
+      title: 'SFIS资料整合',
+      icon: 'carbon:carbon-for-ibm-product'
+    },
+    children: [
+      {
+        path: 'sfismenu1',
+        name: 'SFISMenu1',
+        component: getParentLayout(),
+        redirect: '/level0/sfismenu1/menu1-1/menu1-1-1',
+        meta: {
+          title: '需求单汇总'
+        },
+        children: [
+          {
+            path: 'menu1-1',
+            name: 'Menu11',
+            component: getParentLayout(),
+            redirect: '/level/menu1/menu1-1/menu1-1-1',
+            meta: {
+              title: t('router.menu11'),
+              alwaysShow: true
+            },
+            children: [
+              {
+                path: 'menu1-1-1',
+                name: 'Menu111',
+                component: () => import('@/views/Level/Menu111.vue'),
+                meta: {
+                  title: t('router.menu111')
+                }
+              }
+            ]
+          },
+          {
+            path: 'menu1-2',
+            name: 'Menu12',
+            component: () => import('@/views/Level/Menu12.vue'),
+            meta: {
+              title: t('router.menu12')
+            }
+          }
+        ]
+      },
+      {
+        path: 'sfismenu2',
+        name: 'SFISMenu2',
+        component: () => import('@/views/Level0/Menu2.vue'),
+        meta: {
+          title: '程式逻辑汇总'
+        }
+      },
+      {
+        path: 'sfismenu3',
+        name: 'SFISMenu3',
+        component: () => import('@/views/Level0/Menu3.vue'),
+        meta: {
+          title: '制程流程汇总'
+        }
+      },
+      {
+        path: 'sfismenu4',
+        name: 'SFISMenu4',
+        component: () => import('@/views/Level0/Menu4.vue'),
+        meta: {
+          title: '报错异常汇总'
+        }
+      },
+      {
+        path: 'sfismenu5',
+        name: 'SFISMenu5',
+        component: () => import('@/views/Level0/Menu5.vue'),
+        meta: {
+          title: 'Label尺寸汇总'
+        }
+      },
+      {
+        path: 'sfismenu6',
+        name: 'SFISMenu6',
+        component: () => import('@/views/Level0/Menu6.vue'),
+        meta: {
+          title: '权限旗标汇总'
+        }
+      },
+      {
+        path: 'sfismenu7',
+        name: 'SFISMenu7',
+        component: () => import('@/views/Level0/Menu7.vue'),
+        meta: {
+          title: 'Table表旗标汇总'
+        }
+      },
+      {
+        path: 'sfismenu8',
+        name: 'SFISMenu8',
+        component: () => import('@/views/Level0/Menu8.vue'),
+        meta: {
+          title: '刷枪指令汇总'
+        }
+      },
+      {
+        path: 'sfismenu9',
+        name: 'SFISMenu9',
+        component: () => import('@/views/Level0/Menu9.vue'),
+        meta: {
+          title: 'TNS DB IP汇总'
+        }
+      },
+      {
+        path: 'sfismenu10',
+        name: 'SFISMenu10',
+        component: () => import('@/views/Level0/Menu10.vue'),
+        meta: {
+          title: 'URL汇总'
+        }
+      }
+    ]
+  },
+  {
     path: '/example',
     component: Layout,
     redirect: '/example/example-dialog',

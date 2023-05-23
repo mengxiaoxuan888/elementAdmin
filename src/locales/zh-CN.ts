@@ -85,8 +85,8 @@ export default {
     small: '小'
   },
   login: {
-    welcome: '欢迎使用 SFIS 资讯整合系统',
-    message: '为工厂现场各项生成资料收集于整合的系统，具有工厂制程防呆，资源追踪，即时分析，流程管控 等等管理功能',
+    welcome: 'SFIS后台管理系统',
+    message: '整合需求单,程式逻辑,制程流程,报错异常,Label尺寸,旗标,指令,TNS,URL等等于一体的系统',
     username: '用户名',
     password: '密码',
     register: '注册',
@@ -138,6 +138,12 @@ export default {
     exampleAdd: '综合示例 - 新增',
     exampleEdit: '综合示例 - 编辑',
     exampleDetail: '综合示例 - 详情',
+    sfisexample: 'sfis综合示例',
+    sfisexampleDialog: 'sfis综合示例 - 弹窗',
+    sfisexamplePage: 'sfis综合示例 - 页面',
+    sfisexampleAdd: 'sfis综合示例 - 新增',
+    sfisexampleEdit: 'sfis综合示例 - 编辑',
+    sfisexampleDetail: 'sfis综合示例 - 详情',
     errorPage: '错误页面',
     authorization: '权限管理',
     user: '用户管理',
@@ -330,6 +336,18 @@ export default {
   },
   levelDemo: {
     menu: '多级菜单缓存'
+  },
+  level0Demo: {
+    menu1: '需求单汇总',
+    menu2: '程式逻辑汇总',
+    menu3: '制程流程汇总',
+    menu4: '报错异常汇总',
+    menu5: 'Label尺寸汇总',
+    menu6: '权限旗标汇总',
+    menu7: 'Table表旗标汇总',
+    menu8: '刷枪指令汇总',
+    menu9: 'TNS DB IP汇总',
+    menu10: 'URL汇总'
   },
   searchDemo: {
     search: '查询',
