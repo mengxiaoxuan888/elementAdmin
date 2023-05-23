@@ -1,11 +1,12 @@
-import { createRouter, createWebHashHistory } from 'vue-router'
-import type { RouteRecordRaw } from 'vue-router'
-import type { App } from 'vue'
-import { Layout, getParentLayout } from '@/utils/routerHelper'
-import { useI18n } from '@/hooks/web/useI18n'
+import { createRouter, createWebHashHistory } from 'vue-router' //路由
+import type { RouteRecordRaw } from 'vue-router' //路由
+import type { App } from 'vue' //vue
+import { Layout, getParentLayout } from '@/utils/routerHelper' //工具类-路由器帮助程序
+import { useI18n } from '@/hooks/web/useI18n' //hooks函数-多语言设置
 
 const { t } = useI18n()
 
+//创建路由
 export const constantRouterMap: AppRouteRecordRaw[] = [
   {
     path: '/',

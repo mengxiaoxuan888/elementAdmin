@@ -28,10 +28,12 @@ import { setupRouter } from './router'
 // 权限
 import { setupPermission } from './directives'
 
+// vue
 import { createApp } from 'vue'
 
 import App from './App.vue'
 
+// 许可
 import './permission'
 
 // 创建实例

@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import { LoginForm, RegisterForm } from './components'
-import { ThemeSwitch } from '@/components/ThemeSwitch'
-import { LocaleDropdown } from '@/components/LocaleDropdown'
-import { useI18n } from '@/hooks/web/useI18n'
-import { underlineToHump } from '@/utils'
-import { useAppStore } from '@/store/modules/app'
-import { useDesign } from '@/hooks/web/useDesign'
+import { LoginForm, RegisterForm } from './components' //登录组件，注册组件
+import { ThemeSwitch } from '@/components/ThemeSwitch' //主题开关组件
+import { LocaleDropdown } from '@/components/LocaleDropdown' //局部下降
+import { useI18n } from '@/hooks/web/useI18n' //多语言设置
+import { underlineToHump } from '@/utils' //工具类
+import { useAppStore } from '@/store/modules/app' //状态管理
+import { useDesign } from '@/hooks/web/useDesign' //hooks函数-使用样式设计
 import { ref } from 'vue'
 
 const { getPrefixCls } = useDesign()

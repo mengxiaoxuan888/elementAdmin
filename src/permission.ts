@@ -1,13 +1,13 @@
-import router from './router'
-import { useAppStoreWithOut } from '@/store/modules/app'
-import { useCache } from '@/hooks/web/useCache'
-import type { RouteRecordRaw } from 'vue-router'
-import { useTitle } from '@/hooks/web/useTitle'
-import { useNProgress } from '@/hooks/web/useNProgress'
-import { usePermissionStoreWithOut } from '@/store/modules/permission'
-import { useDictStoreWithOut } from '@/store/modules/dict'
-import { usePageLoading } from '@/hooks/web/usePageLoading'
-import { getDictApi } from '@/api/common'
+import router from './router' //路由配置
+import { useAppStoreWithOut } from '@/store/modules/app' //状态管理
+import { useCache } from '@/hooks/web/useCache' //常用hooks-使用缓存
+import type { RouteRecordRaw } from 'vue-router' //路由
+import { useTitle } from '@/hooks/web/useTitle' //常用hooks-使用标题
+import { useNProgress } from '@/hooks/web/useNProgress' //常用hooks
+import { usePermissionStoreWithOut } from '@/store/modules/permission' //状态管理-用户权限存储超时
+import { useDictStoreWithOut } from '@/store/modules/dict' //状态管理
+import { usePageLoading } from '@/hooks/web/usePageLoading' //常用hooks-使用页面加载
+import { getDictApi } from '@/api/common' //api接口管理
 
 const permissionStore = usePermissionStoreWithOut()
 
@@ -26,6 +26,7 @@ const whiteList = ['/login'] // 不重定向白名单
 router.beforeEach(async (to, from, next) => {
   start()
   loadStart()
+  //获取缓存用户信息
   if (wsCache.get(appStore.getUserInfo)) {
     if (to.path === '/login') {
       next({ path: '/' })
@@ -44,10 +45,12 @@ router.beforeEach(async (to, from, next) => {
       }
 
       // 开发者可根据实际情况进行修改
+      //角色路由器
       const roleRouters = wsCache.get('roleRouters') || []
+      //获取缓存用户信息
       const userInfo = wsCache.get(appStore.getUserInfo)
 
-      // 是否使用动态路由
+      // 是否使用动态路由，即权限管理，管理员身份和普通身份
       if (appStore.getDynamicRouter) {
         userInfo.role === 'admin'
           ? await permissionStore.generateRoutes('admin', roleRouters as AppCustomRouteRecordRaw[])
