@@ -17,11 +17,13 @@ import { TableColumn } from '@/types/table' //类型-表
 const { register, tableObject, methods } = useTable<TableData>({
   getListApi: getTableListApi, //获取表数据
   delListApi: delTableListApi, //删除表数据
-  response: {//响应
+  response: {
+    //响应
     list: 'list', //list列表数据
     total: 'total' //总数
   },
-  defaultParams: { //默认参数
+  defaultParams: {
+    //默认参数
     title: 's'
   }
 })
